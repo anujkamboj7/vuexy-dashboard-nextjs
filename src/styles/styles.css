@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .scrollbox {
-  height: calc(100% - 64px);
+  height: calc(100vh - 64px);
   overflow-y: scroll;
   position: relative;
 }

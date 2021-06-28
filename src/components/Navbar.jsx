@@ -25,8 +25,8 @@ import {
 
 import { Transition } from "@tailwindui/react";
 import { useState, useRef, useEffect } from "react";
-
 import Image from "next/image";
+
 // Flags Dropdown data
 const dropdownFlags = [
   {
@@ -55,16 +55,19 @@ const dropdownFlags = [
 const MapItems = () => {
   return (
     <>
-      {dropdownFlags.map((data) => {
+      {dropdownFlags.map((data, index) => {
         const { flags, text, href } = data;
         return (
-          <li className='px-5 py-2 text-gray-500 hover:bg-indigo-50 hover:text-indigo-500'>
+          <li
+            className='px-5 py-2 text-gray-500 hover:bg-indigo-50 hover:text-indigo-500'
+            key={index}
+          >
             <Link href={href}>
-              <a>
+              <a className='flex aling-center'>
                 <span>
-                  {<img src={flags} className='w-6 h-5 inline-block mr-2.5' />}
+                  {<Image src={flags} alt={text} width={24} height={24} />}
                 </span>
-                <span className='text-sm'>{text}</span>
+                <span className='text-sm ml-2.5'>{text}</span>
               </a>
             </Link>
           </li>
@@ -78,16 +81,14 @@ const MapItems = () => {
 const Dropdown = (props) => {
   const { text, icon, href } = props;
   return (
-    <>
-      <li className='px-5 py-2 text-gray-500 hover:bg-indigo-50 hover:text-indigo-500'>
-        <Link href={href}>
-          <a className='flex space-x-2.5 text-sm items-center'>
-            <span>{icon}</span>
-            <span className='text-sm'>{text}</span>
-          </a>
-        </Link>
-      </li>
-    </>
+    <li className='px-5 py-2 text-gray-500 hover:bg-indigo-50 hover:text-indigo-500'>
+      <Link href={href}>
+        <a className='flex space-x-2.5 text-sm items-center'>
+          <span>{icon}</span>
+          <span className='text-sm'>{text}</span>
+        </a>
+      </Link>
+    </li>
   );
 };
 
@@ -125,17 +126,12 @@ const NavItem = (props) => {
           }}
         >
           <span>{icon}</span>
+
           <span className={badgeStyles}>{badgeText}</span>
-          <div className='relative hidden sm:block' ref={container}>
+          <div className='relative hidden sm:flex items-center' ref={container}>
             {flag && (
               <>
-                <span>
-                  <img
-                    src={flag}
-                    className='w-6 h-5 inline-block mr-2.5'
-                    alt=''
-                  />
-                </span>
+                <Image src={flag} alt={text} width={24} height={24} />
                 <Transition
                   show={isOpen}
                   enter='transition ease-out duration-300'
@@ -148,7 +144,7 @@ const NavItem = (props) => {
                 >
                   <MapItems />
                 </Transition>
-                <span className='text-sm text-gray-500'>{text}</span>
+                <span className='text-sm text-gray-500 ml-2.5'>{text}</span>
               </>
             )}
           </div>

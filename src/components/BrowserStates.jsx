@@ -87,8 +87,9 @@ const BrowserData = [
 
 const BrowserStateListing = (props) => {
   const { browser, count, chart } = props;
+
   return (
-    <div className='flex  items-center first:mt-0 justify-between'>
+    <div className='flex items-center first:mt-0 justify-between'>
       <div className='flex space-x-3 font-medium'>
         <img src={browser.logo} alt='' />
         <span className='text-sm text-gray-500 break-normal'>
@@ -121,6 +122,7 @@ const BrowserStates = () => {
     window.addEventListener("click", handleOutsideClick);
     return () => window.removeEventListener("click", handleOutsideClick);
   }, [isOpen, container]);
+
   return (
     <div className='rounded-md shadow-sm bg-white -mb-px h-full'>
       <div className='relative flex justify-between items-center p-5'>
@@ -171,14 +173,12 @@ const BrowserStates = () => {
         {BrowserData.map((data, index) => {
           const { browser, count, chart } = data;
           return (
-            <>
-              <BrowserStateListing
-                key={index}
-                browser={browser}
-                count={count}
-                chart={chart}
-              />
-            </>
+            <BrowserStateListing
+              browser={browser}
+              count={count}
+              chart={chart}
+              key={index}
+            />
           );
         })}
       </div>

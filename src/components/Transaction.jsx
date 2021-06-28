@@ -182,15 +182,14 @@ const Transaction = () => {
         </div>
       </div>
       <div className='px-5 pb-5 space-y-6'>
-        {TransactionData.map((data) => {
+        {TransactionData.map((data, index) => {
           const { payment, transactionInfo } = data;
           return (
-            <>
-              <TransanctionListing
-                payment={payment}
-                transaction={transactionInfo}
-              />
-            </>
+            <TransanctionListing
+              payment={payment}
+              transaction={transactionInfo}
+              key={index}
+            />
           );
         })}
       </div>

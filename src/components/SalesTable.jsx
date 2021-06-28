@@ -97,12 +97,8 @@ const SalesTable = () => {
       <table className='w-full  whitespace-pre-wrap h-full'>
         <thead className='bg-dolphin'>
           <tr>
-            {tableHeadingData.map((data) => {
-              return (
-                <>
-                  <TableHeading heading={data} />
-                </>
-              );
+            {tableHeadingData.map((data, index) => {
+              return <TableHeading heading={data} key={index} />;
             })}
           </tr>
         </thead>
@@ -110,17 +106,15 @@ const SalesTable = () => {
           {SalesTableData.map((data) => {
             const { company, category, views, revenue, sales } = data;
             return (
-              <>
-                <tr className='bg-white  border-t'>
-                  <TableBody
-                    company={company}
-                    category={category}
-                    views={views}
-                    revenue={revenue}
-                    sales={sales}
-                  />
-                </tr>
-              </>
+              <tr className='bg-white  border-t' key={company.name}>
+                <TableBody
+                  company={company}
+                  category={category}
+                  views={views}
+                  revenue={revenue}
+                  sales={sales}
+                />
+              </tr>
             );
           })}
         </tbody>
