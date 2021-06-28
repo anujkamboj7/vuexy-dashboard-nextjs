@@ -40,13 +40,13 @@ export default function Home() {
 
       <Transition
         show={isOpen}
-        enter='transition-opacity ease-out duration-300'
+        enter='transition ease-out duration-300'
         enterFrom='opacity-0'
-        enterTo='opacity-100'
-        leave='transition-opacity ease-out duration-300'
-        leaveFrom='opacity-100'
+        enterTo='opacity-0'
+        leave='transition ease-out duration-300'
+        leaveFrom='opacity-0'
         leaveTo='opacity-0'
-        className='h-full w-full bg-gray-900 opacity-50 z-20 fixed top-0 left-0'
+        className='h-full w-full bg-gray-900 opacity-50  z-20 fixed top-0 left-0'
       ></Transition>
       {/* Show left sidebare when menu icon clicked  */}
 

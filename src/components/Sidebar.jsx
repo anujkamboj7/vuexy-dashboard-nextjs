@@ -91,7 +91,7 @@ const Sidebar = ({ isOpen, setIsOpen, navBar }) => {
         leave='transition ease-out duration-300'
         leaveFrom='transform opacity-100 -translate-x-8'
         leaveTo='transform opacity-0 -translate-x-full'
-        className={`w-64 fixed bottom-0 top-0 bg-white z-1000 overflow-hidden shadow-light`}
+        className={`w-64 fixed bottom-0 top-0  bg-white z-1000 overflow-hidden shadow-light`}
       >
         <div>
           <div className='flex items-center justify-between space-x-3 pt-5 mb-3 pr-4 pl-6 h-16'>

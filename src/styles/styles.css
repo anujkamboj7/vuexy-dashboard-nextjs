@@ -7,7 +7,7 @@
 
 .scrollbox {
   height: calc(100vh - 64px);
-  overflow-y: scroll;
+  overflow-y: auto;
   position: relative;
 }
 .scrollbox::-webkit-scrollbar {
@@ -24,4 +24,27 @@
 }
 .scrollbox:hover::-webkit-scrollbar-thumb:hover {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1200px) {
+  .scrollbox {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    position: relative;
+  }
+  .scrollbox::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbox::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    transition: 0.2s;
+  }
+
+  .scrollbox::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .scrollbox::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
