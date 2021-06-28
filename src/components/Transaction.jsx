@@ -9,7 +9,7 @@ import {
 } from "react-icons/fi";
 
 import { Transition } from "@tailwindui/react";
-
+import Link from "next/link";
 const TransactionData = [
   {
     payment: {
@@ -149,7 +149,6 @@ const Transaction = () => {
             className='h-5 w-5 cursor-pointer select-none'
             onClick={() => setIsOpen((isOpen) => !isOpen)}
           />
-
           <Transition
             show={isOpen}
             enter='transition-opacity duration-75'
@@ -160,24 +159,21 @@ const Transaction = () => {
             leaveTo='opacity-0'
             className='absolute top-10 -right-2 -mt-3 border border-gray-400 border-opacity-20 shadow-sm flex  flex-col bg-white py-1.5  w-max rounded-md z-10'
           >
-            <a
-              className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'
-              href='/'
-            >
-              Last 28 Days
-            </a>
-            <a
-              className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'
-              href='/'
-            >
-              Last Month
-            </a>
-            <a
-              className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'
-              href='/'
-            >
-              Last Year
-            </a>
+            <Link href='/'>
+              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+                Last 28 Days
+              </a>
+            </Link>
+            <Link href='/'>
+              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+                Last Month
+              </a>
+            </Link>
+            <Link href='/'>
+              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+                Last Year
+              </a>
+            </Link>
           </Transition>
         </div>
       </div>

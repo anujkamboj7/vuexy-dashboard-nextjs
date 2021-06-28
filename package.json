@@ -13,7 +13,6 @@
     "@tailwindui/react": "^0.1.1",
     "chart.js": "^3.4.0",
     "next": "11.0.1",
-    "next-images": "^1.8.1",
     "react": "17.0.2",
     "react-chartjs-2": "^3.0.3",
     "react-dom": "17.0.2",

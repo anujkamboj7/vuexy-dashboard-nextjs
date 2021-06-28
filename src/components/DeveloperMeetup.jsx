@@ -1,23 +1,26 @@
 import { useState } from "react";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
-
+import Image from "next/image";
 const Avatar = (props) => {
   const [show, setShow] = useState(false);
   const { src, tooltip } = props;
 
   return (
     <span className='cursor-pointer relative'>
-      <img
-        src={src}
-        alt=''
-        className='w-10 h-10 inline-block rounded-full border-white border-2 ease-linear hover:z-10 transform hover:-translate-y-1 hover:scale-110 hover:relative transition duration-150'
-        onMouseOver={() => {
-          setShow(true);
-        }}
-        onMouseLeave={() => {
-          setShow(false);
-        }}
-      />
+      <div className='w-10 h-10 inline-block rounded-full border-white border-2 ease-linear hover:z-10 transform hover:-translate-y-1 hover:scale-110 hover:relative transition duration-150'>
+        <Image
+          layout='fill'
+          src={src}
+          alt=''
+          onMouseOver={() => {
+            setShow(true);
+          }}
+          onMouseLeave={() => {
+            setShow(false);
+          }}
+        />
+      </div>
+
       {show && (
         <div
           className={`mt-1  absolute py-1.5 transform -translate-x-1/2 left-1/2 z-10 w-32  px-2 text-xs ease-linear transition duration-150 text-center leading-tight text-white   bg-gray-800 rounded-md shadow-lg`}
