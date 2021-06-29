@@ -63,7 +63,7 @@ const Statistics = () => {
         </h4>
         <span className='text-gray-400 text-11.2'>Updated 1 month ago</span>
       </div>
-      <div className='sm:flex items-center p-5 desktop:px-7 desktop:py-8  w-full flex-wrap justify-between space-y-6 sm:space-y-4'>
+      <div className='sm:flex items-center p-5 desktop:px-7 desktop:py-8  w-full flex-wrap justify-between space-y-6 desktop:space-y-0'>
         <StaticBlocks />
       </div>
     </div>
