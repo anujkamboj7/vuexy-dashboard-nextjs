@@ -1,9 +1,11 @@
 /* ./styles/globals.css */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .scrollbox {
   height: calc(100vh - 64px);

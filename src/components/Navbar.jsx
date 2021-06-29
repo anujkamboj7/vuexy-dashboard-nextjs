@@ -128,7 +128,10 @@ const NavItem = (props) => {
           <span>{icon}</span>
 
           <span className={badgeStyles}>{badgeText}</span>
-          <div className='relative hidden sm:flex items-center' ref={container}>
+          <div
+            className='relative hidden flagsWidth:flex items-center'
+            ref={container}
+          >
             {flag && (
               <>
                 <Image src={flag} alt={text} width={24} height={24} />
@@ -140,7 +143,7 @@ const NavItem = (props) => {
                   leave='transition ease-out duration-100'
                   leaveFrom='opacity-100'
                   leaveTo='opacity-0'
-                  className='absolute top-12 border flex flex-col  border-gray-400 border-opacity-20 bg-white py-1.5 right-0 w-max rounded-md  z-10'
+                  className='absolute top-12 border flex flex-col  border-gray-400 border-opacity-20 bg-white py-1.5 sm:right-0 w-max rounded-md  z-10'
                 >
                   <MapItems />
                 </Transition>

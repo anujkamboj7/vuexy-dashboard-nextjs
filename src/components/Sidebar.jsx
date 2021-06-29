@@ -51,7 +51,7 @@ const NavItem = (props) => {
     <li>
       <Link href={href}>
         <a
-          className={`pl-4 pr-2 py-3 flex justify-between items-center mb-1 text-sm transition-all rounded-md ease-linear duration-150 hover:pl-6 ${
+          className={`pl-4 pr-2 py-3 flex justify-between items-center  text-sm transition-all rounded-md ease-linear duration-150 hover:pl-6 ${
             textwhite ? "text-white" : "text-gray-700"
           } ${bgIndgo ? "bg-indigo-400" : "bg-white"} ${
             bgGray ? "bg-gray-100" : "bg-white"
@@ -94,7 +94,7 @@ const Sidebar = ({ isOpen, setIsOpen, navBar }) => {
         className={`w-64 fixed bottom-0 top-0  bg-white z-1000 overflow-hidden shadow-light`}
       >
         <div>
-          <div className='flex items-center justify-between space-x-3 pt-5 mb-3 pr-4 pl-6 h-16'>
+          <div className='flex items-center justify-between space-x-3 pt-2 mb-3 pr-4 pl-6 h-16'>
             <div className='flex items-center space-x-3'>
               <img
                 src='https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/demo-1/img/logo.36f34a9f.svg'
@@ -116,7 +116,7 @@ const Sidebar = ({ isOpen, setIsOpen, navBar }) => {
               <FiX className='w-5 h-5' />
             </span>
           </div>
-          <ul className='pl-3.5 pr-2 pb-4  scrollbox'>
+          <ul className='pl-3.5 pr-2 pb-3 scrollbox -mt-2'>
             <NavItem
               text='DashBoards'
               classes='bg-gray-100 rounded mb-1'
