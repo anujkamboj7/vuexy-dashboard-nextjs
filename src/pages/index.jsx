@@ -9,7 +9,7 @@ import Orders from "../components/Orders";
 import Profit from "../components/Profit";
 import RevenueReport from "../components/RevenueReport";
 import SalesTable from "../components/SalesTable";
-import Sidebar from "../components/Sidebar";
+import Sidebar, { Sidebarwidth } from "../components/Sidebar";
 
 import Statistics from "../components/Statistics";
 import Transaction from "../components/Transaction";
@@ -18,6 +18,7 @@ import { Transition } from "@tailwindui/react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [checked, setChecked] = Sidebarwidth();
 
   const navBar = useRef(null);
 
@@ -35,7 +36,7 @@ export default function Home() {
   }, [isOpen, navBar]);
 
   return (
-    <div className='font-body antialiased relative'>
+    <div className='relative overflow-hidden'>
       {/* Background Overlay */}
 
       <Transition
@@ -50,12 +51,24 @@ export default function Home() {
       ></Transition>
       {/* Show left sidebare when menu icon clicked  */}
 
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} navBar={navBar} />
+      <Sidebar
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        navBar={navBar}
+        checked={checked}
+        setChecked={setChecked}
+      />
 
       {/* hide left sidebare when menu icon  not clicked  */}
 
-      <div className='desktop:ml-64 relative  min-h-screen bg-gray-light p-4 sm:py-5 sm:px-7'>
-        <Navbar setOpen={setIsOpen} open={isOpen} />
+      <div
+        className={`${
+          checked ? "desktop:ml-64" : "desktop:ml-20"
+        }  relative  min-h-screen bg-gray-light dark:bg-dark-heavy p-4 sm:py-5 sm:px-7`}
+      >
+        <div className='fixed block w-full h-24 left-0  bg-gradient-to-b from-white to-transparent dark:bg-gradient-to-b dark:from-dark-heavy dark:to-dark-transparent z-10 top-0'></div>
+        <Navbar setOpen={setIsOpen} open={isOpen} checked={checked} />
+
         <div className='pt-20 sm:pt-24'>
           <div className='grid gap-6 grid-cols-4 desktop:grid-cols-3'>
             <div className='col-span-4 md:col-span-2 desktop:col-span-1'>

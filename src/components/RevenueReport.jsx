@@ -9,13 +9,11 @@ import BudgetChart from "./charts/BudgetChart";
 const NavItem = (props) => {
   const { text, href } = props;
   return (
-    <>
-      <Link href={href}>
-        <a className='text-gray-500 text-sm py-2 text-left px-4 hover:bg-indigo-50 hover:text-indigo-500'>
-          {text}
-        </a>
-      </Link>
-    </>
+    <Link href={href}>
+      <a className='text-gray-500 dark:text-gray-300 text-sm py-2.5 text-left px-4 hover:bg-indigo-50 hover:text-indigo-500 dark:hover:bg-dark-heavy'>
+        {text}
+      </a>
+    </Link>
   );
 };
 const RevenueReport = () => {
@@ -36,14 +34,14 @@ const RevenueReport = () => {
   }, [isOpen, container]);
 
   return (
-    <div className='relative rounded-md shadow-sm bg-white h-full'>
+    <div className='relative rounded-md shadow-sm bg-white dark:bg-dark-medium h-full'>
       <div className='md:flex'>
-        <div className='py-5 px-5 sm:px-6 md:w-8/12 border-r space-y-8'>
+        <div className='py-5 px-5 sm:px-6 md:w-8/12 border-r dark:border-gray-600 dark:border-opacity-70 space-y-8'>
           <div className='sm:flex justify-between'>
-            <h4 className='font-medium  text-gray-600 tracking-wide text-lg mb-1.5 sm:mb-0'>
+            <h4 className='font-medium  text-gray-600 dark:text-gray-300 tracking-wide text-lg mb-1.5 sm:mb-0'>
               Revenue Report
             </h4>
-            <div className='text-gray-500 flex text-sm space-x-7'>
+            <div className='text-gray-500 dark:text-gray-400 flex text-sm space-x-7'>
               <div className='space-x-2'>
                 <span className='bg-indigo-500 p-1.5 inline-block rounded-full'></span>
                 <span>Eearning</span>
@@ -63,8 +61,7 @@ const RevenueReport = () => {
           <div className='text-center'>
             <button
               ref={container}
-              type='button'
-              className='py-1.5  relative px-2.5 border border-opacity-90 border-indigo-500 rounded-md font-medium text-xs inline-block mb-7 text-indigo-500 focus:outline-none'
+              className='py-1.5  relative px-3 border border-opacity-90 border-indigo-500 rounded-md font-medium text-xs inline-block mb-7 text-indigo-500 focus:outline-none'
               onClick={() => setIsOpen((isOpen) => !isOpen)}
             >
               <div className='flex'>
@@ -82,22 +79,24 @@ const RevenueReport = () => {
                 leaveFrom='opacity-100'
                 leaveTo='opacity-0'
               >
-                <ul className='absolute top-10 border flex flex-col bg-white py-1 -left-1 w-36 rounded-md  z-10'>
-                  <NavItem text='2021' href='/' />
-                  <NavItem text='2022' href='/' />
-                  <NavItem text='2023' href='/' />
+                <ul className='absolute top-10 border border-gray-400 dark:border-opacity-20 flex flex-col bg-white dark:bg-dark-medium py-1 -left-1 w-36 rounded-md'>
+                  <NavItem text='2020' href='/' />
+                  <NavItem text='2019' href='/' />
+                  <NavItem text='2018' href='/' />
                 </ul>
               </Transition>
             </button>
 
-            <h4 className='font-medium  text-gray-500 tracking-wide text-2xl'>
+            <h4 className='font-medium  text-gray-500 dark:text-gray-300 tracking-wide text-2xl'>
               $25,852
             </h4>
             <div>
-              <span className='text-gray-500 font-semibold text-sm'>
+              <span className='text-gray-500 dark:text-gray-400 font-semibold text-sm'>
                 Budget:{" "}
               </span>
-              <span className='text-sm text-gray-500'>56,800</span>
+              <span className='text-sm text-gray-500 dark:text-gray-400'>
+                56,800
+              </span>
             </div>
             <div className='my-4'>
               <BudgetChart />

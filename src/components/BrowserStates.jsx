@@ -99,12 +99,12 @@ const BrowserStateListing = (props) => {
     <div className='flex items-center first:mt-0 justify-between'>
       <div className='flex space-x-3 font-medium'>
         <img src={browser.logo} alt='logo' />
-        <span className='text-sm text-gray-500 break-normal'>
+        <span className='text-sm text-gray-500 dark:text-gray-300 break-normal'>
           {browser.name}
         </span>
       </div>
       <div className='flex items-center space-x-4'>
-        <span className='text-sm text-gray-500 font-medium'>
+        <span className='text-sm text-gray-500 dark:text-gray-300 font-medium'>
           {count.percent}
         </span>
         <span>{chart}</span>
@@ -131,16 +131,21 @@ const BrowserStates = () => {
   }, [isOpen, container]);
 
   return (
-    <div className='rounded-md shadow-sm bg-white -mb-px h-full'>
+    <div className='rounded-md shadow-sm bg-white dark:bg-dark-medium -mb-px h-full'>
       <div className='relative flex justify-between items-center p-5'>
         <div>
-          <h4 className='font-medium  text-gray-600 tracking-wide text-lg'>
+          <h4 className='font-medium  text-gray-600 dark:text-gray-300 tracking-wide text-lg'>
             Browser States
           </h4>
           {/*  todo fixed paragraph font size bellow */}
-          <p className='text-xs text-gray-500'>Counter August 2020</p>
+          <p className='text-xs text-gray-500 dark:text-gray-400'>
+            Counter August 2020
+          </p>
         </div>
-        <div ref={container} className='relative text-gray-500 flex text-sm'>
+        <div
+          ref={container}
+          className='relative text-gray-500 dark:text-gray-300 flex text-sm'
+        >
           <FiMoreVertical
             className='h-5 w-5 cursor-pointer select-none'
             onClick={() => setIsOpen((isOpen) => !isOpen)}
@@ -153,20 +158,20 @@ const BrowserStates = () => {
             leave='transition-opacity duration-150'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
-            className="absolute top-10 -right-2 lg:left-0 -mt-3 border border-gray-400 border-opacity-20  shadow-sm flex   flex-col bg-white py-1.5  w-max rounded-md z-10'"
+            className="absolute top-10 -right-2 lg:left-0 -mt-3 border border-gray-400 border-opacity-20  shadow-sm flex   flex-col bg-white dark:bg-dark-medium py-1.5 text-gray-500 dark:text-gray-300 w-max rounded-md z-10'"
           >
             <Link href='/'>
-              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+              <a className=' text-sm py-2.5 text-left px-4 hover:bg-indigo-50 dark:hover:bg-dark-heavy hover:text-indigo-500 dark:hover:text-gray-300'>
                 Last 28 Days
               </a>
             </Link>
             <Link href='/'>
-              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+              <a className='text-sm py-2.5 text-left px-4 hover:bg-indigo-50 dark:hover:bg-dark-heavy hover:text-indigo-500 dark:hover:text-gray-300'>
                 Last Month
               </a>
             </Link>
             <Link href='/'>
-              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+              <a className='text-sm py-2.5 text-left px-4 hover:bg-indigo-50 dark:hover:bg-dark-heavy hover:text-indigo-500 dark:hover:text-gray-300'>
                 Last Year
               </a>
             </Link>

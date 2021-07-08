@@ -1,13 +1,12 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-  ],
-  darkMode: false, // or 'media' or 'class'
+  purge: ["./src/**/*.{js,ts,jsx,tsx,css}"],
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundColor: ["checked"],
+      borderColor: ["checked"],
       colors: {
         indigo: colors.indigo,
         amber: colors.amber,
@@ -18,11 +17,19 @@ module.exports = {
         cyan: colors.cyan,
         gray: colors.gray,
         dolphin: "#F3F2F7",
+        dark: {
+          heavy: "#161E30",
+          medium: "#283145",
+          light: "#313859",
+          heavy10: "rgba(22, 30, 47, 0.1)",
+          white10: "rgba(255, 255, 255, 0.1)",
+        },
       },
       width: {
         almost: "calc(100% - 312px)",
         almostMd: "calc(100% - 56px)",
         almostsm: "calc(100% - 32px)",
+        fullSize: "calc(100% - 82px - 56px)",
       },
       minHeight: {
         20: "20px",
@@ -44,8 +51,8 @@ module.exports = {
       },
       height: {
         170: "170px",
+        hfull: "calc(100vh - 64px)",
       },
-
       backgroundColor: {
         gray: {
           light: "#f7f7f7",

@@ -12,7 +12,7 @@ const data = {
   datasets: [
     {
       label: "0",
-      data: [0, 20, 5, 30, 15, 45],
+      data: [0, 20, 5, 35, 20, 45],
       backgroundColor: ["#30D7E9"],
       borderColor: "#30D7E9",
       borderRadius: 10,
@@ -48,7 +48,7 @@ const options = {
 const ProfitChart = () => {
   return (
     <div className='select-none'>
-      <Line height='70' width='100%' data={data} options={options} />
+      <Line height='65' width='100%' data={data} options={options} />
     </div>
   );
 };

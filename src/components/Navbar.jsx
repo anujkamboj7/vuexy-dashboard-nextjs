@@ -3,6 +3,7 @@ import franceFlag from "../images/flags/france.png";
 import germanyFlag from "../images/flags/germany.png";
 import portugalFlag from "../images/flags/portugal.png";
 import Link from "next/link";
+import ThemeSwitch from "./ThemeSwtich";
 
 import {
   FiMail,
@@ -59,14 +60,12 @@ const MapItems = () => {
         const { flags, text, href } = data;
         return (
           <li
-            className='px-5 py-2 text-gray-500 hover:bg-indigo-50 hover:text-indigo-500'
+            className='px-4 py-2.5  hover:bg-indigo-50  dark:hover:bg-dark-heavy text-gray-500  dark:text-gray-300  hover:text-indigo-500'
             key={index}
           >
             <Link href={href}>
-              <a className='flex aling-center'>
-                <span>
-                  {<Image src={flags} alt={text} width={24} height={24} />}
-                </span>
+              <a className='flex items-center'>
+                {<Image src={flags} alt={text} width={20} height={20} />}
                 <span className='text-sm ml-2.5'>{text}</span>
               </a>
             </Link>
@@ -81,7 +80,7 @@ const MapItems = () => {
 const Dropdown = (props) => {
   const { text, icon, href } = props;
   return (
-    <li className='px-5 py-2 text-gray-500 hover:bg-indigo-50 hover:text-indigo-500'>
+    <li className='px-4 py-2.5 text-gray-500 dark:text-gray-300  hover:bg-indigo-50 dark:hover:bg-dark-heavy hover:text-indigo-500'>
       <Link href={href}>
         <a className='flex space-x-2.5 text-sm items-center'>
           <span>{icon}</span>
@@ -116,7 +115,7 @@ const NavItem = (props) => {
   const { href, icon, badgeText, badgeStyles, flag, text, classes } = props;
 
   return (
-    <li className={`px-2 ${classes}`}>
+    <li className={`px-2 ${classes} dark:text-gray-300`}>
       <Link href={href}>
         <a
           className='relative block'
@@ -134,7 +133,7 @@ const NavItem = (props) => {
           >
             {flag && (
               <>
-                <Image src={flag} alt={text} width={24} height={24} />
+                <Image src={flag} alt={text} width={20} height={20} />
                 <Transition
                   show={isOpen}
                   enter='transition ease-out duration-300'
@@ -143,11 +142,13 @@ const NavItem = (props) => {
                   leave='transition ease-out duration-100'
                   leaveFrom='opacity-100'
                   leaveTo='opacity-0'
-                  className='absolute top-12 border flex flex-col  border-gray-400 border-opacity-20 bg-white py-1.5 sm:right-0 w-max rounded-md  z-10'
+                  className='absolute top-12 border flex flex-col  border-gray-400 border-opacity-20 bg-white dark:bg-dark-medium py-1.5 sm:right-0 w-max rounded-md'
                 >
                   <MapItems />
                 </Transition>
-                <span className='text-sm text-gray-500 ml-2.5'>{text}</span>
+                <span className='text-sm text-gray-500 dark:text-gray-300 ml-2.5'>
+                  {text}
+                </span>
               </>
             )}
           </div>
@@ -158,7 +159,9 @@ const NavItem = (props) => {
 };
 
 // navbar component
-const Navbar = ({ open, setOpen }) => {
+const Navbar = ({ open, setOpen, checked }) => {
+  // Theme switch
+  const [colorTheme, setTheme] = ThemeSwitch();
   const [isOpen, setIsOpen] = useState(false);
 
   const container = useRef(null);
@@ -177,7 +180,11 @@ const Navbar = ({ open, setOpen }) => {
   }, [isOpen, container]);
 
   return (
-    <div className='flex items-center justify-between bg-white px-4 py-3 fixed w-almostsm sm:w-almostMd desktop:w-almost z-10 rounded-md shadow-sm'>
+    <div
+      className={`flex items-center justify-between bg-white dark:bg-dark-medium px-4 py-3 fixed ${
+        !checked ? "w-fullSize" : "w-almostsm sm:w-almostMd desktop:w-almost"
+      } z-10 rounded-md shadow-md`}
+    >
       {/* menu icon */}
       <span
         className='cursor-pointer block lg:hidden text-gray-500'
@@ -204,16 +211,21 @@ const Navbar = ({ open, setOpen }) => {
       </ul>
       <ul className='flex items-center text-gray-500'>
         <NavItem href='#' flag={usFlag} text='English' />
-        <NavItem
-          href='/'
-          classes='hidden sm:block'
-          icon={<FiMoon className='h-5 w-5' />}
-        />
-        <NavItem
-          href='/'
-          classes='hidden sm:block'
-          icon={<FiSun className='h-5 w-5' />}
-        />
+        <span className='cursor-pointer' onClick={() => setTheme(colorTheme)}>
+          {colorTheme === "light" ? (
+            <NavItem
+              href='javascript:void(0)'
+              classes='hidden sm:block'
+              icon={<FiSun className='h-5 w-5' />}
+            />
+          ) : (
+            <NavItem
+              href='javascript:void(0)'
+              classes='hidden sm:block'
+              icon={<FiMoon className='h-5 w-5' />}
+            />
+          )}
+        </span>
         <NavItem href='/' icon={<FiSearch className='h-5 w-5' />} />
         <NavItem
           href='/'
@@ -237,10 +249,12 @@ const Navbar = ({ open, setOpen }) => {
             className='flex flex-wrap items-center justify-items-center space-x-2 px-2'
           >
             <div className='hidden md:block'>
-              <h4 className='font-semibold text-sm text-gray-500 leading-5'>
+              <h4 className='font-semibold text-sm text-gray-500 dark:text-gray-300 leading-5'>
                 Jhon Doe
               </h4>
-              <p className='text-xs text-right text-gray-500'>admin</p>
+              <p className='text-xs text-right text-gray-500 dark:text-gray-300'>
+                admin
+              </p>
             </div>
             <div className='relative inline-block'>
               <img
@@ -259,7 +273,7 @@ const Navbar = ({ open, setOpen }) => {
             leave='transition ease-out duration-100'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
-            className='absolute top-14 border  border-gray-400 border-opacity-20 bg-white py-1.5  rounded-md right-0  z-10 w-44'
+            className='absolute top-14 border  border-gray-400 border-opacity-20 bg-white dark:bg-dark-medium py-1.5  rounded-md right-0  z-10 w-44'
           >
             <Dropdown
               text='Profile'
@@ -282,7 +296,7 @@ const Navbar = ({ open, setOpen }) => {
               icon={<FiMessageSquare className='w-4 h-4' />}
             />
 
-            <hr className='my-2 block border-gray-150' />
+            <hr className='my-2 block border-gray-150 dark:border-gray-600 dark:border-opacity-70' />
 
             <Dropdown
               text='Settings'

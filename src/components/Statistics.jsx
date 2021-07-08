@@ -6,21 +6,24 @@ const StaticsData = [
     sales: "230K",
     icon: [<FiTrendingUp className='h-6 w-6' />],
     title: "Sales",
-    styles: "bg-indigo-50 text-indigo-500 p-3 inline-block rounded-full",
+    styles:
+      "bg-indigo-50 dark:bg-indigo-500 dark:bg-opacity-10  text-indigo-500 p-3 inline-block rounded-full",
   },
   {
     id: 2,
     sales: "8.549k",
     icon: [<FiUser className='h-6 w-6' />],
     title: "Customers",
-    styles: "bg-cyan-50 text-cyan-500 p-3 inline-block rounded-full",
+    styles:
+      "bg-cyan-50 dark:bg-cyan-500 dark:bg-opacity-10 text-cyan-500 p-3 inline-block rounded-full",
   },
   {
     id: 3,
     sales: "230K",
     icon: [<FiBox className='h-6 w-6' />],
     title: "Products",
-    styles: "bg-red-50 text-red-500 p-3 inline-block rounded-full",
+    styles:
+      "bg-red-50 dark:bg-red-500 dark:bg-opacity-10 text-red-500 p-3 inline-block rounded-full",
   },
   {
     id: 4,
@@ -28,7 +31,8 @@ const StaticsData = [
     icon: [<FiDollarSign className='h-6 w-6' />],
     iconStyles: "h-6 w-6",
     title: "Revenue",
-    styles: "bg-green-50 text-green-500 p-3 inline-block rounded-full",
+    styles:
+      "bg-green-50 dark:bg-green-500 dark:bg-opacity-10 text-green-500 p-3 inline-block rounded-full",
   },
 ];
 
@@ -44,8 +48,12 @@ const StaticBlocks = () => {
           >
             <span className={styles}>{icon}</span>
             <div>
-              <h4 className='text-gray-500 font-semibold text-lg'>{sales}</h4>
-              <p className='text-xs text-gray-700 tracking-normal'>{title}</p>
+              <h4 className='text-gray-500 dark:text-gray-300 font-semibold text-lg'>
+                {sales}
+              </h4>
+              <p className='text-xs text-gray-700 dark:text-gray-400 tracking-normal'>
+                {title}
+              </p>
             </div>
           </div>
         );
@@ -56,12 +64,14 @@ const StaticBlocks = () => {
 
 const Statistics = () => {
   return (
-    <div className='relative rounded-md shadow-sm bg-white h-full'>
+    <div className='relative rounded-md shadow-sm bg-white dark:bg-dark-medium h-full'>
       <div className='flex items-center justify-between py-4 px-5 lg:py-5 lg:px-8'>
-        <h4 className='font-medium  text-gray-600 tracking-wide text-lg'>
+        <h4 className='font-medium  text-gray-600 dark:text-gray-300 tracking-wide text-lg'>
           Statistics
         </h4>
-        <span className='text-gray-400 text-11.2'>Updated 1 month ago</span>
+        <span className='text-gray-400 dark:text-gray-300 text-11.2'>
+          Updated 1 month ago
+        </span>
       </div>
       <div className='sm:flex items-center p-5 desktop:px-7 desktop:py-8  w-full flex-wrap justify-between space-y-6 desktop:space-y-0'>
         <StaticBlocks />

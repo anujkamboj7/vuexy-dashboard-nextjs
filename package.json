@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.3",
@@ -21,9 +19,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
-    "eslint": "^7.29.0",
-    "eslint-config-next": "^11.0.1",
-    "lint": "^0.7.0",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4"
   }

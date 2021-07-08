@@ -74,32 +74,34 @@ const TransanctionListing = (props) => {
     <div className='flex items-center justify-between'>
       <div className='flex space-x-3.5'>
         {payment.type === "Wallet" && (
-          <span className='bg-indigo-50 text-indigo-500 h-9 w-9 justify-center flex items-center rounded-md'>
+          <span className='bg-indigo-50 dark:bg-indigo-500 dark:bg-opacity-10 text-indigo-500 h-9 w-9 justify-center flex items-center rounded-md'>
             <FiPocket className='h-4 w-4' />
           </span>
         )}
         {payment.type === "Bank Transfer" && (
-          <span className='bg-green-50 text-green-500 h-9 w-9 justify-center flex items-center rounded-md'>
+          <span className='bg-green-50 dark:bg-green-500 dark:bg-opacity-10  text-green-500 h-9 w-9 justify-center flex items-center rounded-md'>
             <FiCheck className='h-4 w-4' />
           </span>
         )}
         {payment.type === "Paypal" && (
-          <span className='bg-red-50 text-red-500 h-9 w-9 justify-center flex items-center rounded-md'>
+          <span className='bg-red-50 dark:bg-red-500 dark:bg-opacity-10 text-red-500 h-9 w-9 justify-center flex items-center rounded-md'>
             <FiDollarSign className='h-4 w-4' />
           </span>
         )}
         {payment.type === "Mastercard" && (
-          <span className='bg-amber-50 text-amber-500 h-9 w-9 justify-center flex items-center rounded-md'>
+          <span className='bg-amber-50 dark:bg-amber-500 dark:bg-opacity-10 text-amber-500 h-9 w-9 justify-center flex items-center rounded-md'>
             <FiCreditCard className='h-4 w-4' />
           </span>
         )}
         {payment.type === "Transfer" && (
-          <span className='bg-cyan-50 text-cyan-500 h-9 w-9 justify-center flex items-center rounded-md'>
+          <span className='bg-cyan-50 dark:bg-cyan-500 dark:bg-opacity-10 text-cyan-500 h-9 w-9 justify-center flex items-center rounded-md'>
             <FiTrendingUp className='h-4 w-4' />
           </span>
         )}
         <div>
-          <h5 className='text-gray-500 text-sm font-medium'>{payment.type}</h5>
+          <h5 className='text-gray-500 dark:text-gray-300 text-sm font-medium'>
+            {payment.type}
+          </h5>
           <p className='text-xs text-gray-400'>{payment.merchantName}</p>
         </div>
       </div>
@@ -137,14 +139,17 @@ const Transaction = () => {
   }, [isOpen, container]);
 
   return (
-    <div className='rounded-md shadow-sm bg-white  h-full'>
+    <div className='rounded-md shadow-sm bg-white dark:bg-dark-medium  h-full'>
       <div className='relative flex justify-between items-center p-5'>
         <div>
-          <h4 className='font-medium  text-gray-600 tracking-wide text-lg'>
+          <h4 className='font-medium  text-gray-600 dark:text-gray-300 tracking-wide text-lg'>
             Transactions
           </h4>
         </div>
-        <div className='relative text-gray-500 flex text-sm' ref={container}>
+        <div
+          className='relative text-gray-500 dark:text-gray-300 flex text-sm'
+          ref={container}
+        >
           <FiMoreVertical
             className='h-5 w-5 cursor-pointer select-none'
             onClick={() => setIsOpen((isOpen) => !isOpen)}
@@ -157,20 +162,20 @@ const Transaction = () => {
             leave='transition-opacity duration-150'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
-            className='absolute top-10 -right-2 -mt-3 border border-gray-400 border-opacity-20 shadow-sm flex  flex-col bg-white py-1.5  w-max rounded-md z-10'
+            className='absolute top-10 -right-2 -mt-3 border border-gray-400 border-opacity-20 shadow-sm flex  flex-col bg-white dark:bg-dark-medium py-1.5  w-max rounded-md z-10'
           >
             <Link href='/'>
-              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+              <a className='text-gray-500 dark:text-gray-300 text-sm py-2 text-left px-4 hover:bg-indigo-50 dark:hover:bg-dark-heavy hover:text-indigo-500'>
                 Last 28 Days
               </a>
             </Link>
             <Link href='/'>
-              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+              <a className='text-gray-500 dark:text-gray-300 text-sm py-2 text-left px-4 hover:bg-indigo-50 dark:hover:bg-dark-heavy  hover:text-indigo-500'>
                 Last Month
               </a>
             </Link>
             <Link href='/'>
-              <a className='text-gray-500 text-sm py-2 text-left px-5 hover:bg-indigo-50 hover:text-indigo-500'>
+              <a className='text-gray-500 dark:text-gray-300 text-sm py-2 text-left px-4 hover:bg-indigo-50 dark:hover:bg-dark-heavy  hover:text-indigo-500'>
                 Last Year
               </a>
             </Link>

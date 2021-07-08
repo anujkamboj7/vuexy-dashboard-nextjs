@@ -8,7 +8,7 @@ const data = {
       data: [83, 17],
       backgroundColor: ["#4FDEA0", "#EEECF3"],
       hoverBackgroundColor: ["#4FDEA0", "#EEECF3"],
-      cutout: "88%",
+      cutout: "92%",
       borderRadius: [100, 0],
       rotation: -180,
     },
