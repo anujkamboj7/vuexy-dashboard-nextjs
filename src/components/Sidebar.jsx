@@ -162,7 +162,7 @@ const Sidebar = ({ isOpen, setIsOpen, navBar, checked, setChecked }) => {
                   <FiChevronRight className='text-gray-500 dark:text-gray-400' />
                 )
               }
-              href='javascript:void(0)'
+              href=''
               icon={<FiHome className='h-5 w-5' />}
             />
             {(isHovering || checked) && (

@@ -127,13 +127,13 @@ const NavItem = (props) => {
           <span>{icon}</span>
 
           <span className={badgeStyles}>{badgeText}</span>
-          <div
-            className='relative hidden flagsWidth:flex items-center'
-            ref={container}
-          >
+          <div className='relative flex items-center' ref={container}>
             {flag && (
               <>
-                <Image src={flag} alt={text} width={20} height={20} />
+                <span className='hidden small:flex place-items-center'>
+                  <Image src={flag} alt={text} width={20} height={20} />{" "}
+                </span>
+
                 <Transition
                   show={isOpen}
                   enter='transition ease-out duration-300'
@@ -146,7 +146,7 @@ const NavItem = (props) => {
                 >
                   <MapItems />
                 </Transition>
-                <span className='text-sm text-gray-500 dark:text-gray-300 ml-2.5'>
+                <span className='text-sm text-gray-500 dark:text-gray-300 ml-2.5 hidden sm:block'>
                   {text}
                 </span>
               </>
@@ -210,18 +210,18 @@ const Navbar = ({ open, setOpen, checked }) => {
         />
       </ul>
       <ul className='flex items-center text-gray-500'>
-        <NavItem href='#' flag={usFlag} text='English' />
+        <NavItem href='/' flag={usFlag} text='English' />
         <span className='cursor-pointer' onClick={() => setTheme(colorTheme)}>
           {colorTheme === "light" ? (
             <NavItem
               href='javascript:void(0)'
-              classes='hidden sm:block'
+              classes='block'
               icon={<FiSun className='h-5 w-5' />}
             />
           ) : (
             <NavItem
               href='javascript:void(0)'
-              classes='hidden sm:block'
+              classes='block'
               icon={<FiMoon className='h-5 w-5' />}
             />
           )}

@@ -66,8 +66,8 @@ module.exports = {
       screens: {
         desktop: "1198.98px",
         // => @media (min-width: 1198.98px) { ... }
-        flagsWidth: "375px",
-        small: "319.98px",
+        flagsWidth: "400px",
+        small: "340px",
         // => @media (min-width: 319.98px) { ... }
       },
     },
