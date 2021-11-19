@@ -2,7 +2,7 @@
 
 https://vuexy-dashboard-nextjs.vercel.app/
 
-## Build a Vuexy Admin dashboard with the graph capabilities.
+### Build a Vuexy Admin dashboard with the graph capabilities.
 
 ###### Responsive vuexy dashboard Website Using Next Js, Chart Js & Tailwind Css.
 
